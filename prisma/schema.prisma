@@ -11,14 +11,12 @@ generator client {
 }
 
 model Creature {
-  id Int @id @default(autoincrement())
-
-  number Int    @unique
+  number Int    @id
   name   String @unique
   image  String
 
-  evolveTo   Creature? @relation(fields: [evolveToId], references: [id])
-  evolveToId Int?      @unique
+  evolveTo   Creature? @relation(fields: [evolveToNumber], references: [number])
+  evolveToNumber Int?      @unique
 
   evolveFrom Creature? @relation("CreatureToCreature")
 }

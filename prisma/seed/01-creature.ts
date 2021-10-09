@@ -5,95 +5,82 @@ import { gzip } from 'node-gzip';
 
 export const creatures: Prisma.Creature[] = [
   {
-    id: 1,
     number: 1,
     name: 'Creature 1',
     image: 'Monstro-Olhos-1',
-    evolveToId: 2,
+    evolveToNumber: 2,
   },
   {
-    id: 2,
     number: 2,
     name: 'Creature 2',
     image: 'Monstro-Olhos-2',
-    evolveToId: 3,
+    evolveToNumber: 3,
   },
   {
-    id: 3,
     number: 3,
     name: 'Creature 3',
     image: 'Monstro-Olhos-3',
-    evolveToId: null,
+    evolveToNumber: null,
   },
   {
-    id: 4,
     number: 4,
     name: 'Creature 4',
     image: 'Monstro-Peixe-1',
-    evolveToId: 5,
+    evolveToNumber: 5,
   },
   {
-    id: 5,
     number: 5,
     name: 'Creature 5',
     image: 'Monstro-Peixe-2',
-    evolveToId: 6,
+    evolveToNumber: 6,
   },
   {
-    id: 6,
     number: 6,
     name: 'Creature 6',
     image: 'Monstro-Peixe-3',
-    evolveToId: null,
+    evolveToNumber: null,
   },
   {
-    id: 7,
     number: 7,
     name: 'Creature 7',
     image: 'Monstro-Lagarto-1',
-    evolveToId: 8,
+    evolveToNumber: 8,
   },
   {
-    id: 8,
     number: 8,
     name: 'Creature 8',
     image: 'Monstro-Lagarto-2',
-    evolveToId: null,
+    evolveToNumber: null,
   },
   {
-    id: 9,
     number: 9,
     name: 'Creature 9',
     image: 'Monstro-Planta-1',
-    evolveToId: 10,
+    evolveToNumber: 10,
   },
   {
-    id: 10,
     number: 10,
     name: 'Creature 10',
     image: 'Monstro-Planta-2',
-    evolveToId: null,
+    evolveToNumber: null,
   },
   {
-    id: 11,
     number: 11,
     name: 'Creature 11',
     image: 'Monstro-Fogo-1',
-    evolveToId: 12,
+    evolveToNumber: 12,
   },
   {
-    id: 12,
     number: 12,
     name: 'Creature 12',
     image: 'Monstro-Fogo-2',
-    evolveToId: null,
+    evolveToNumber: null,
   },
   {
-    id: 13,
     number: 13,
     name: 'Creature 13',
     image: 'Monstro-Lendário',
-    evolveToId: null,
+    evolveToNumber: null,
   },
 ];
 
@@ -122,13 +109,13 @@ export const creature = async (prisma: PrismaClient) => {
         image: await compressToGzipAsBase64(
           await readFileAsBase64(`assets/${obj.image}.png`),
         ),
-        evolveToId: undefined,
+        evolveToNumber: undefined,
       },
     });
   }
 
   for (const obj of Object.values(creatures)) {
-    if (!obj.evolveToId) {
+    if (!obj.evolveToNumber) {
       continue;
     }
 
@@ -137,7 +124,7 @@ export const creature = async (prisma: PrismaClient) => {
       data: {
         evolveTo: {
           connect: {
-            number: obj.evolveToId,
+            number: obj.evolveToNumber,
           },
         },
       },
