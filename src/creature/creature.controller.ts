@@ -10,8 +10,8 @@ export class CreatureController {
     return this.creatureService.findAll(includeImages);
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: number) {
-    return this.creatureService.findOne(id);
+  @Get(':number')
+  findOne(@Param('number') number: number) {
+    return this.creatureService.findOne(number);
   }
 }

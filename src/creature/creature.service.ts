@@ -1,4 +1,5 @@
 import { Injectable } from '@nestjs/common';
+import { Prisma } from '@prisma/client';
 import { PrismaService } from '../prisma/prisma.service';
 import { Creature } from './entities/creature.entity';
 
@@ -7,31 +8,24 @@ export class CreatureService {
   constructor(private readonly prisma: PrismaService) {}
 
   findAll(includeImages: boolean) {
-    return this.prisma.creature.findMany({
+    const select: Prisma.CreatureSelect = {
+      number: true,
+      name: true,
+      image: includeImages,
+    };
+
+    // Include `evolveTo` until third evolution
+    select.evolveTo = {
       select: {
-        id: true,
-        number: true,
-        name: true,
-        image: includeImages,
-        evolveTo: {
-          select: {
-            id: true,
-            number: true,
-            name: true,
-          },
-        },
-        evolveFrom: {
-          select: {
-            id: true,
-            number: true,
-            name: true,
-          },
-        },
+        ...select,
+        evolveTo: { select: { ...select } },
       },
-    });
+    };
+
+    return this.prisma.creature.findMany({ select });
   }
 
-  findOne(id: number): Promise<Creature> {
-    return this.prisma.creature.findUnique({ where: { id } });
+  findOne(number: number): Promise<Creature> {
+    return this.prisma.creature.findUnique({ where: { number } });
   }
 }
