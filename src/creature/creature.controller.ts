@@ -6,7 +6,7 @@ export class CreatureController {
   constructor(private readonly creatureService: CreatureService) {}
 
   @Get()
-  findAll(@Query('includeImages') includeImages: boolean) {
+  findAll(@Query('includeImages') includeImages = true) {
     return this.creatureService.findAll(includeImages);
   }
 
