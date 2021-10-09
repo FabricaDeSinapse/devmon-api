@@ -1,4 +1,4 @@
-import { Controller, Get, Param, Query } from '@nestjs/common';
+import { Controller, Get, Param } from '@nestjs/common';
 import { CreatureService } from './creature.service';
 
 @Controller('creature')
@@ -6,8 +6,8 @@ export class CreatureController {
   constructor(private readonly creatureService: CreatureService) {}
 
   @Get()
-  findAll(@Query('includeImages') includeImages = true) {
-    return this.creatureService.findAll(includeImages);
+  findAll() {
+    return this.creatureService.findAll();
   }
 
   @Get(':number')

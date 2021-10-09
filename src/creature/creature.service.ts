@@ -7,11 +7,11 @@ import { Creature } from './entities/creature.entity';
 export class CreatureService {
   constructor(private readonly prisma: PrismaService) {}
 
-  findAll(includeImages: boolean) {
+  findAll() {
     const select: Prisma.CreatureSelect = {
       number: true,
       name: true,
-      image: includeImages,
+      image: true,
     };
 
     // Include `evolveTo` until third evolution
