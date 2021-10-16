@@ -26,7 +26,8 @@
     "prisma:merge": "npx prisma-merge",
     "prisma:push": "npm run prisma:merge & npx prisma db push --preview-feature & npm run prisma:generate",
     "prisma:run": "npm run prisma:merge & rimraf src/prisma/migrations & npm run prisma:migrate-init & npm run prisma:generate & npm run prisma:seed",
-    "prisma:seed": "npx prisma db seed"
+    "prisma:seed": "npx prisma db seed",
+    "heroku-postbuild": "npm install --only=dev --no-shrinkwrap && npm run build"
   },
   "prisma": {
     "seed": "ts-node prisma/seed.ts"
