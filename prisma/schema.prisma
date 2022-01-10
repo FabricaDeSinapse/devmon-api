@@ -15,6 +15,8 @@ model Creature {
   name   String @unique
   image  String
 
+  legendary Boolean? @default(value: false)
+
   evolveTo   Creature? @relation(fields: [evolveToNumber], references: [number])
   evolveToNumber Int?      @unique
 

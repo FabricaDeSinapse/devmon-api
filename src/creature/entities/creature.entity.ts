@@ -4,4 +4,5 @@ export class Creature {
   name: string;
   image: string;
   evolveFrom?: Creature;
+  legendary?: boolean;
 }

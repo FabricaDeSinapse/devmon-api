@@ -12,6 +12,7 @@ export class CreatureService {
       number: true,
       name: true,
       image: true,
+      legendary: true,
     };
 
     // Include `evolveTo` until third evolution

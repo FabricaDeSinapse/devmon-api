@@ -1,5 +1,4 @@
-import * as Prisma from '@prisma/client';
-import { PrismaClient } from '@prisma/client';
+import { Prisma, PrismaClient } from '@prisma/client';
 import { promises as fs } from 'fs';
 import { gzip } from 'node-gzip';
 
@@ -9,7 +8,7 @@ const addImagesAsBase64 = false;
 
 // Data
 
-export const creatures: Prisma.Creature[] = [
+export const creatures: Prisma.CreatureUncheckedCreateInput[] = [
   {
     number: 1,
     name: 'Creature 1',
@@ -32,7 +31,6 @@ export const creatures: Prisma.Creature[] = [
     image: addImagesAsBase64
       ? 'Monstro-Olhos-3'
       : 'https://i.imgur.com/r4UjONq.png',
-    evolveToNumber: null,
   },
   {
     number: 4,
@@ -56,7 +54,6 @@ export const creatures: Prisma.Creature[] = [
     image: addImagesAsBase64
       ? 'Monstro-Peixe-3'
       : 'https://i.imgur.com/Jldgrr6.png',
-    evolveToNumber: null,
   },
   {
     number: 7,
@@ -72,7 +69,6 @@ export const creatures: Prisma.Creature[] = [
     image: addImagesAsBase64
       ? 'Monstro-Lagarto-2'
       : 'https://i.imgur.com/SUBhlhe.png',
-    evolveToNumber: null,
   },
   {
     number: 9,
@@ -88,7 +84,6 @@ export const creatures: Prisma.Creature[] = [
     image: addImagesAsBase64
       ? 'Monstro-Planta-2'
       : 'https://i.imgur.com/YEuaYEZ.png',
-    evolveToNumber: null,
   },
   {
     number: 11,
@@ -112,6 +107,7 @@ export const creatures: Prisma.Creature[] = [
     image: addImagesAsBase64
       ? 'Monstro-Lendário'
       : 'https://i.imgur.com/jyo3rpf.png',
+    legendary: true,
     evolveToNumber: null,
   },
 ];
@@ -134,7 +130,7 @@ const compressToGzipAsBase64 = async (data: string): Promise<string> => {
 
 // Get Image
 
-const getImage = async (obj: Prisma.Creature) =>
+const getImage = async (obj: Prisma.CreatureUncheckedCreateInput) =>
   addImagesAsBase64
     ? compressToGzipAsBase64(await readFileAsBase64(`assets/${obj.image}.png`))
     : obj.image;
