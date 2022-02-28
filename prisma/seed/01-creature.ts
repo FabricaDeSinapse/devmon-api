@@ -11,102 +11,80 @@ const addImagesAsBase64 = false;
 export const creatures: Prisma.CreatureUncheckedCreateInput[] = [
   {
     number: 1,
-    name: 'Creature 1',
-    image: addImagesAsBase64
-      ? 'Monstro-Olhos-1'
-      : 'https://i.imgur.com/PHfd1h2.png',
+    name: 'Java',
+    image: addImagesAsBase64 ? '#1 Java' : 'https://i.imgur.com/PHfd1h2.png',
     evolveToNumber: 2,
   },
   {
     number: 2,
-    name: 'Creature 2',
-    image: addImagesAsBase64
-      ? 'Monstro-Olhos-2'
-      : 'https://i.imgur.com/EZ3zCBp.png',
+    name: 'Kotlin',
+    image: addImagesAsBase64 ? '#2 Kotlin' : 'https://i.imgur.com/EZ3zCBp.png',
     evolveToNumber: 3,
   },
   {
     number: 3,
-    name: 'Creature 3',
-    image: addImagesAsBase64
-      ? 'Monstro-Olhos-3'
-      : 'https://i.imgur.com/r4UjONq.png',
+    name: 'Android',
+    image: addImagesAsBase64 ? '#3 Android' : 'https://i.imgur.com/r4UjONq.png',
   },
   {
     number: 4,
-    name: 'Creature 4',
-    image: addImagesAsBase64
-      ? 'Monstro-Peixe-1'
-      : 'https://i.imgur.com/iWeXxA9.png',
+    name: 'C',
+    image: addImagesAsBase64 ? '#4 C' : 'https://i.imgur.com/iWeXxA9.png',
     evolveToNumber: 5,
   },
   {
     number: 5,
-    name: 'Creature 5',
-    image: addImagesAsBase64
-      ? 'Monstro-Peixe-2'
-      : 'https://i.imgur.com/YYkSF5A.png',
+    name: 'C++',
+    image: addImagesAsBase64 ? '#5 C++' : 'https://i.imgur.com/YYkSF5A.png',
     evolveToNumber: 6,
   },
   {
     number: 6,
-    name: 'Creature 6',
-    image: addImagesAsBase64
-      ? 'Monstro-Peixe-3'
-      : 'https://i.imgur.com/Jldgrr6.png',
+    name: 'C#',
+    image: addImagesAsBase64 ? '#6 C#' : 'https://i.imgur.com/Jldgrr6.png',
   },
   {
     number: 7,
-    name: 'Creature 7',
+    name: 'JavaScript',
     image: addImagesAsBase64
-      ? 'Monstro-Lagarto-1'
+      ? '#7 JavaScript'
       : 'https://i.imgur.com/WEKXaw3.png',
     evolveToNumber: 8,
   },
   {
     number: 8,
-    name: 'Creature 8',
+    name: 'TypeScript',
     image: addImagesAsBase64
-      ? 'Monstro-Lagarto-2'
+      ? '#8 TypeScript'
       : 'https://i.imgur.com/SUBhlhe.png',
   },
   {
     number: 9,
-    name: 'Creature 9',
-    image: addImagesAsBase64
-      ? 'Monstro-Planta-1'
-      : 'https://i.imgur.com/4d8PVxQ.png',
+    name: 'Express',
+    image: addImagesAsBase64 ? '#9 Express' : 'https://i.imgur.com/pRGNm6T.png',
     evolveToNumber: 10,
   },
   {
     number: 10,
-    name: 'Creature 10',
-    image: addImagesAsBase64
-      ? 'Monstro-Planta-2'
-      : 'https://i.imgur.com/YEuaYEZ.png',
+    name: 'NestJS',
+    image: addImagesAsBase64 ? '#10 NestJS' : 'https://i.imgur.com/1IOVD1l.png',
   },
   {
     number: 11,
-    name: 'Creature 11',
-    image: addImagesAsBase64
-      ? 'Monstro-Fogo-1'
-      : 'https://i.imgur.com/pRGNm6T.png',
+    name: 'SQL',
+    image: addImagesAsBase64 ? '#11 SQL' : 'https://i.imgur.com/4d8PVxQ.png',
     evolveToNumber: 12,
   },
   {
     number: 12,
-    name: 'Creature 12',
-    image: addImagesAsBase64
-      ? 'Monstro-Fogo-2'
-      : 'https://i.imgur.com/1IOVD1l.png',
+    name: 'NoSQL',
+    image: addImagesAsBase64 ? '#12 NoSQL' : 'https://i.imgur.com/YEuaYEZ.png',
     evolveToNumber: null,
   },
   {
     number: 13,
-    name: 'Creature 13',
-    image: addImagesAsBase64
-      ? 'Monstro-Lendário'
-      : 'https://i.imgur.com/jyo3rpf.png',
+    name: 'Unity',
+    image: addImagesAsBase64 ? '#13 Unity' : 'https://i.imgur.com/jyo3rpf.png',
     legendary: true,
     evolveToNumber: null,
   },
