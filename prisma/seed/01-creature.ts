@@ -122,7 +122,11 @@ export const creature = async (prisma: PrismaClient) => {
   for (const obj of Object.values(creatures)) {
     await prisma.creature.upsert({
       where: { number: obj.number },
-      update: {},
+      update: {
+        ...obj,
+        image: await getImage(obj),
+        evolveToNumber: undefined,
+      },
       create: {
         ...obj,
         image: await getImage(obj),
