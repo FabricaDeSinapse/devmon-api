@@ -121,7 +121,7 @@ export const creature = async (prisma: PrismaClient) => {
 
   for (const obj of Object.values(creatures)) {
     await prisma.creature.upsert({
-      where: { name: obj.name },
+      where: { number: obj.number },
       update: {},
       create: {
         ...obj,
