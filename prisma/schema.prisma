@@ -17,7 +17,7 @@ model Creature {
 
   legendary Boolean? @default(value: false)
 
-  evolveTo   Creature? @relation(fields: [evolveToNumber], references: [number])
+  evolveTo   Creature? @relation("CreatureToCreature", fields: [evolveToNumber], references: [number])
   evolveToNumber Int?      @unique
 
   evolveFrom Creature? @relation("CreatureToCreature")

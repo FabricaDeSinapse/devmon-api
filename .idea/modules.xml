@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/backend-livro-android-casa-do-codigo.iml" filepath="$PROJECT_DIR$/.idea/backend-livro-android-casa-do-codigo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/devmon-api.iml" filepath="$PROJECT_DIR$/.idea/devmon-api.iml" />
     </modules>
   </component>
 </project>
